@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFirst.TogetherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CompagnySiteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TogetherCompagnyId" Type="int" Nullable="false" />
+    <Property Name="adresse" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoadTeamSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TogetherCarsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="immatriculation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="marque" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="annee" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoadTeamId" Type="int" Nullable="false" />
+    <Property Name="places" Type="int" Nullable="false" />
+    <Property Name="TogetherDrivers_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TogetherCompagnySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TogetherUsersSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="homeAdress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="workAdress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="goingMode" Type="bit" Nullable="false" />
+    <Property Name="TogetherDriversId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TogetherUsersSet_TogetherDrivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DriversHaveUsers">
+    <End Role="TogetherUsersSet_TogetherDrivers" Type="Self.TogetherUsersSet_TogetherDrivers" Multiplicity="1" />
+    <End Role="TogetherUsersSet" Type="Self.TogetherUsersSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet_TogetherDrivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherUsersSet">
+        <PropertyRef Name="TogetherDriversId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoadTeamCars">
+    <End Role="RoadTeamSet" Type="Self.RoadTeamSet" Multiplicity="1" />
+    <End Role="TogetherCarsSet" Type="Self.TogetherCarsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoadTeamSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherCarsSet">
+        <PropertyRef Name="RoadTeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherCarsTogetherDrivers">
+    <End Role="TogetherUsersSet_TogetherDrivers" Type="Self.TogetherUsersSet_TogetherDrivers" Multiplicity="1" />
+    <End Role="TogetherCarsSet" Type="Self.TogetherCarsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet_TogetherDrivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherCarsSet">
+        <PropertyRef Name="TogetherDrivers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherCompagnySite">
+    <End Role="TogetherCompagnySet" Type="Self.TogetherCompagnySet" Multiplicity="1" />
+    <End Role="CompagnySiteSet" Type="Self.CompagnySiteSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherCompagnySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompagnySiteSet">
+        <PropertyRef Name="TogetherCompagnyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherDrivers_inherits_TogetherUsers">
+    <End Role="TogetherUsersSet" Type="Self.TogetherUsersSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TogetherUsersSet_TogetherDrivers" Type="Self.TogetherUsersSet_TogetherDrivers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherUsersSet_TogetherDrivers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelFirstTogetherModelStoreContainer">
+    <EntitySet Name="CompagnySiteSet" EntityType="Self.CompagnySiteSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostSet" EntityType="Self.PostSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoadTeamSet" EntityType="Self.RoadTeamSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TogetherCarsSet" EntityType="Self.TogetherCarsSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TogetherCompagnySet" EntityType="Self.TogetherCompagnySet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TogetherUsersSet" EntityType="Self.TogetherUsersSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TogetherUsersSet_TogetherDrivers" EntityType="Self.TogetherUsersSet_TogetherDrivers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DriversHaveUsers" Association="Self.FK_DriversHaveUsers">
+      <End Role="TogetherUsersSet_TogetherDrivers" EntitySet="TogetherUsersSet_TogetherDrivers" />
+      <End Role="TogetherUsersSet" EntitySet="TogetherUsersSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoadTeamCars" Association="Self.FK_RoadTeamCars">
+      <End Role="RoadTeamSet" EntitySet="RoadTeamSet" />
+      <End Role="TogetherCarsSet" EntitySet="TogetherCarsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherCarsTogetherDrivers" Association="Self.FK_TogetherCarsTogetherDrivers">
+      <End Role="TogetherUsersSet_TogetherDrivers" EntitySet="TogetherUsersSet_TogetherDrivers" />
+      <End Role="TogetherCarsSet" EntitySet="TogetherCarsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherCompagnySite" Association="Self.FK_TogetherCompagnySite">
+      <End Role="TogetherCompagnySet" EntitySet="TogetherCompagnySet" />
+      <End Role="CompagnySiteSet" EntitySet="CompagnySiteSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherDrivers_inherits_TogetherUsers" Association="Self.FK_TogetherDrivers_inherits_TogetherUsers">
+      <End Role="TogetherUsersSet" EntitySet="TogetherUsersSet" />
+      <End Role="TogetherUsersSet_TogetherDrivers" EntitySet="TogetherUsersSet_TogetherDrivers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

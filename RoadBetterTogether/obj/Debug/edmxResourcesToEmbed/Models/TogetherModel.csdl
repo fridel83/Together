@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFirst.TogetherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdressesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Batiment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="code_postal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ville" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="numero" Type="Int32" Nullable="false" />
+    <Property Name="TogetherUsersSet_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdressesSet_HomeAdress" Relationship="Self.FK_HomeAdress_inherits_AdressesSet" FromRole="AdressesSet" ToRole="AdressesSet_HomeAdress" />
+    <NavigationProperty Name="TogetherUsersSet" Relationship="Self.FK_TogetherUsersSetAdressesSet" FromRole="AdressesSet" ToRole="TogetherUsersSet" />
+    <NavigationProperty Name="AdressesSet_WorkAdress" Relationship="Self.FK_WorkAdress_inherits_AdressesSet" FromRole="AdressesSet" ToRole="AdressesSet_WorkAdress" />
+  </EntityType>
+  <EntityType Name="AdressesSet_HomeAdress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HomeAdressesSet" Relationship="Self.FK_HomeAdress_inherits_AdressesSet" FromRole="AdressesSet_HomeAdress" ToRole="AdressesSet" />
+  </EntityType>
+  <EntityType Name="AdressesSet_WorkAdress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="WorkAdressesSet" Relationship="Self.FK_WorkAdress_inherits_AdressesSet" FromRole="AdressesSet_WorkAdress" ToRole="AdressesSet" />
+  </EntityType>
+  <EntityType Name="CompagnySiteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TogetherCompagnyId" Type="Int32" Nullable="false" />
+    <Property Name="adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TogetherCompagnySet" Relationship="Self.FK_TogetherCompagnySite" FromRole="CompagnySiteSet" ToRole="TogetherCompagnySet" />
+  </EntityType>
+  <EntityType Name="HomeAdressSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="PostSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="RoadTeamSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="TogetherCarsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="immatriculation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="marque" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="annee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoadTeamId" Type="Int32" />
+    <Property Name="places" Type="Int32" Nullable="false" />
+    <Property Name="TogetherDrivers_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TogetherUsersSet_TogetherDrivers" Relationship="Self.FK_TogetherCarsTogetherDrivers" FromRole="TogetherCarsSet" ToRole="TogetherUsersSet_TogetherDrivers" />
+  </EntityType>
+  <EntityType Name="TogetherCompagnySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CompagnySiteSet" Relationship="Self.FK_TogetherCompagnySite" FromRole="TogetherCompagnySet" ToRole="CompagnySiteSet" />
+  </EntityType>
+  <EntityType Name="TogetherUsersSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="goingMode" Type="Boolean" Nullable="false" />
+    <Property Name="TogetherDriversId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdressesSet" Relationship="Self.FK_TogetherUsersSetAdressesSet" FromRole="TogetherUsersSet" ToRole="AdressesSet" />
+    <NavigationProperty Name="TogetherUsersSet_TogetherDrivers" Relationship="Self.FK_TogetherDrivers_inherits_TogetherUsers" FromRole="TogetherUsersSet" ToRole="TogetherUsersSet_TogetherDrivers" />
+  </EntityType>
+  <EntityType Name="TogetherUsersSet_TogetherDrivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TogetherCarsSet" Relationship="Self.FK_TogetherCarsTogetherDrivers" FromRole="TogetherUsersSet_TogetherDrivers" ToRole="TogetherCarsSet" />
+    <NavigationProperty Name="TogetherUsersSet" Relationship="Self.FK_TogetherDrivers_inherits_TogetherUsers" FromRole="TogetherUsersSet_TogetherDrivers" ToRole="TogetherUsersSet" />
+  </EntityType>
+  <EntityType Name="WorkAdressSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_HomeAdress_inherits_AdressesSet">
+    <End Role="AdressesSet" Type="Self.AdressesSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AdressesSet_HomeAdress" Type="Self.AdressesSet_HomeAdress" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AdressesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdressesSet_HomeAdress">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherUsersSetAdressesSet">
+    <End Role="TogetherUsersSet" Type="Self.TogetherUsersSet" Multiplicity="1" />
+    <End Role="AdressesSet" Type="Self.AdressesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdressesSet">
+        <PropertyRef Name="TogetherUsersSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkAdress_inherits_AdressesSet">
+    <End Role="AdressesSet" Type="Self.AdressesSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AdressesSet_WorkAdress" Type="Self.AdressesSet_WorkAdress" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AdressesSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdressesSet_WorkAdress">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherCompagnySite">
+    <End Role="TogetherCompagnySet" Type="Self.TogetherCompagnySet" Multiplicity="1" />
+    <End Role="CompagnySiteSet" Type="Self.CompagnySiteSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherCompagnySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompagnySiteSet">
+        <PropertyRef Name="TogetherCompagnyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherCarsTogetherDrivers">
+    <End Role="TogetherUsersSet_TogetherDrivers" Type="Self.TogetherUsersSet_TogetherDrivers" Multiplicity="1" />
+    <End Role="TogetherCarsSet" Type="Self.TogetherCarsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet_TogetherDrivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherCarsSet">
+        <PropertyRef Name="TogetherDrivers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TogetherDrivers_inherits_TogetherUsers">
+    <End Role="TogetherUsersSet" Type="Self.TogetherUsersSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TogetherUsersSet_TogetherDrivers" Type="Self.TogetherUsersSet_TogetherDrivers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TogetherUsersSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TogetherUsersSet_TogetherDrivers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities13" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdressesSet" EntityType="Self.AdressesSet" />
+    <EntitySet Name="AdressesSet_HomeAdress" EntityType="Self.AdressesSet_HomeAdress" />
+    <EntitySet Name="AdressesSet_WorkAdress" EntityType="Self.AdressesSet_WorkAdress" />
+    <EntitySet Name="CompagnySiteSet" EntityType="Self.CompagnySiteSet" />
+    <EntitySet Name="HomeAdressSet" EntityType="Self.HomeAdressSet" />
+    <EntitySet Name="PostSet" EntityType="Self.PostSet" />
+    <EntitySet Name="RoadTeamSet" EntityType="Self.RoadTeamSet" />
+    <EntitySet Name="TogetherCarsSet" EntityType="Self.TogetherCarsSet" />
+    <EntitySet Name="TogetherCompagnySet" EntityType="Self.TogetherCompagnySet" />
+    <EntitySet Name="TogetherUsersSet" EntityType="Self.TogetherUsersSet" />
+    <EntitySet Name="TogetherUsersSet_TogetherDrivers" EntityType="Self.TogetherUsersSet_TogetherDrivers" />
+    <EntitySet Name="WorkAdressSet" EntityType="Self.WorkAdressSet" />
+    <AssociationSet Name="FK_HomeAdress_inherits_AdressesSet" Association="Self.FK_HomeAdress_inherits_AdressesSet">
+      <End Role="AdressesSet" EntitySet="AdressesSet" />
+      <End Role="AdressesSet_HomeAdress" EntitySet="AdressesSet_HomeAdress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherUsersSetAdressesSet" Association="Self.FK_TogetherUsersSetAdressesSet">
+      <End Role="TogetherUsersSet" EntitySet="TogetherUsersSet" />
+      <End Role="AdressesSet" EntitySet="AdressesSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkAdress_inherits_AdressesSet" Association="Self.FK_WorkAdress_inherits_AdressesSet">
+      <End Role="AdressesSet" EntitySet="AdressesSet" />
+      <End Role="AdressesSet_WorkAdress" EntitySet="AdressesSet_WorkAdress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherCompagnySite" Association="Self.FK_TogetherCompagnySite">
+      <End Role="TogetherCompagnySet" EntitySet="TogetherCompagnySet" />
+      <End Role="CompagnySiteSet" EntitySet="CompagnySiteSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherCarsTogetherDrivers" Association="Self.FK_TogetherCarsTogetherDrivers">
+      <End Role="TogetherUsersSet_TogetherDrivers" EntitySet="TogetherUsersSet_TogetherDrivers" />
+      <End Role="TogetherCarsSet" EntitySet="TogetherCarsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TogetherDrivers_inherits_TogetherUsers" Association="Self.FK_TogetherDrivers_inherits_TogetherUsers">
+      <End Role="TogetherUsersSet" EntitySet="TogetherUsersSet" />
+      <End Role="TogetherUsersSet_TogetherDrivers" EntitySet="TogetherUsersSet_TogetherDrivers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

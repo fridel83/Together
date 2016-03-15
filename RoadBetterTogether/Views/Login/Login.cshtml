@@ -1,0 +1,30 @@
+﻿@model RoadBetterTogether.ViewModels.UserAutenticate
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Veuillez vous identifier</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="editor-label">
+        @Html.LabelFor(model => model.login)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.login)
+        @Html.ValidationMessageFor(model => model.login)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.mdp)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(model => model.mdp)
+        @Html.ValidationMessageFor(model => model.mdp)
+    </div>
+    <input type="submit" value="Envoyer" />
+    <div>
+        @Html.ActionLink("creer un compte", "AjouterUser", "Home");
+    </div>
+    
+}

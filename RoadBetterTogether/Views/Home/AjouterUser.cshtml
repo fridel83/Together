@@ -1,0 +1,181 @@
+﻿@model RoadBetterTogether.ViewModels.CreateAccountViewModel
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" href="../../Content/Site.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type='text/javascript' language="javascript">
+        function displayVoitureForm()
+        {
+            var check = document.getElementById('goingMode');
+            if (check.checked)
+            {
+                document.getElementById("voiture").style.display = 'block';
+            }
+            else
+            {
+                document.getElementById("voiture").style.display = 'none';
+            }
+        }
+    </script>
+    
+    
+</head>
+<body>
+    <div>
+        Enregistrer vous
+    </div>
+    <div>
+      @using (Html.BeginForm())
+      { 
+        <fieldset>
+            <legend>Information de votre Compte</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.firstname)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.user.firstname)
+                @Html.ValidationMessageFor(model => model.user.firstname)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.user.name)
+                @Html.ValidationMessageFor(model => model.user.name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.age)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.user.age)
+                @Html.ValidationMessageFor(model => model.user.age)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.user.email)
+                @Html.ValidationMessageFor(model => model.user.email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.login)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.user.login)
+                @Html.ValidationMessageFor(model => model.user.login)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.user.password)
+                @Html.ValidationMessageFor(model => model.user.password)
+            </div>
+            
+            <fieldset>
+                <legend>Enrégistrer votre domicile:</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.home.numero)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.home.numero, new Dictionary<string, object>{
+                     {"id", "homenumero"}})
+                    @Html.ValidationMessageFor(model => model.home.numero)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.home.rue)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.home.rue, new Dictionary<string, object>{
+                     {"id", "homerue"}})
+                    @Html.ValidationMessageFor(model => model.home.rue)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.home.Batiment)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.home.Batiment, new Dictionary<string, object>{
+                     {"id", "homebatiment"}})
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.home.code_postal)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.home.code_postal, new Dictionary<string, object>{
+                     {"id", "homecodepostal"}})
+                    @Html.ValidationMessageFor(model => model.home.code_postal)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.home.ville)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.home.ville, new Dictionary<string, object>{
+                     {"id", "homevile"}
+   })
+                    @Html.ValidationMessageFor(model => model.home.ville)
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Enrégistrer votre adresse du travail:</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.work.numero)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.work.numero, new Dictionary<string, object>{
+                     {"id", "homenumero"}})
+                    @Html.ValidationMessageFor(model => model.work.numero)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.work.rue)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.work.rue, new Dictionary<string, object>{
+                     {"id", "homerue"}})
+                    @Html.ValidationMessageFor(model => model.work.rue)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.work.Batiment)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.work.Batiment, new Dictionary<string, object>{
+                     {"id", "homebatiment"}})
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.work.code_postal)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.work.code_postal, new Dictionary<string, object>{
+                     {"id", "homecodepostal"}})
+                    @Html.ValidationMessageFor(model => model.work.code_postal)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.work.ville)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.work.ville, new Dictionary<string, object>{
+                     {"id", "homevile"} })
+                    @Html.ValidationMessageFor(model => model.work.ville)
+                </div>
+            </fieldset>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.user.goingMode)
+                @Html.CheckBoxFor(model => model.user.goingMode, new Dictionary<string, object>{
+                     {"id", "goingMode"},
+                     {"onclick","displayVoitureForm()"},
+                    })
+            </div>
+        
+                <input type="submit" value="Envoyer" />
+</fieldset>
+        
+      }
+    </div>
+</body>
+</html>
+

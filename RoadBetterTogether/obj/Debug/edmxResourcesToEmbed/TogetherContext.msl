@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirstTogetherModelStoreContainer" CdmEntityContainer="Entities1">
+    <EntitySetMapping Name="CompagnySiteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.CompagnySiteSet)">
+        <MappingFragment StoreEntitySet="CompagnySiteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TogetherCompagnyId" ColumnName="TogetherCompagnyId" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.PostSet)">
+        <MappingFragment StoreEntitySet="PostSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoadTeamSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.RoadTeamSet)">
+        <MappingFragment StoreEntitySet="RoadTeamSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TogetherCarsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.TogetherCarsSet)">
+        <MappingFragment StoreEntitySet="TogetherCarsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="immatriculation" ColumnName="immatriculation" />
+          <ScalarProperty Name="marque" ColumnName="marque" />
+          <ScalarProperty Name="annee" ColumnName="annee" />
+          <ScalarProperty Name="RoadTeamId" ColumnName="RoadTeamId" />
+          <ScalarProperty Name="places" ColumnName="places" />
+          <ScalarProperty Name="TogetherDrivers_Id" ColumnName="TogetherDrivers_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TogetherCompagnySet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.TogetherCompagnySet)">
+        <MappingFragment StoreEntitySet="TogetherCompagnySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TogetherUsersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.TogetherUsersSet)">
+        <MappingFragment StoreEntitySet="TogetherUsersSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="homeAdress" ColumnName="homeAdress" />
+          <ScalarProperty Name="workAdress" ColumnName="workAdress" />
+          <ScalarProperty Name="goingMode" ColumnName="goingMode" />
+          <ScalarProperty Name="TogetherDriversId" ColumnName="TogetherDriversId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TogetherUsersSet_TogetherDrivers">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TogetherModel.TogetherUsersSet_TogetherDrivers)">
+        <MappingFragment StoreEntitySet="TogetherUsersSet_TogetherDrivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
