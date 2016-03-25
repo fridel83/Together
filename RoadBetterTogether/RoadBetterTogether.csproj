@@ -187,10 +187,10 @@
       <LastGenOutput>TogetherModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
-    <Content Include="Views\Home\AjouterUser.cshtml" />
-    <Content Include="Views\Home\AjouterVoiture.cshtml" />
-    <Content Include="Views\Home\enregistrementOK.cshtml" />
-    <Content Include="Views\Home\AjouterHomeAdresse.cshtml" />
+    <Content Include="Views\Login\AjouterUser.cshtml" />
+    <Content Include="Views\Login\AjouterVoiture.cshtml" />
+    <Content Include="Views\Login\enregistrementOK.cshtml" />
+    <Content Include="Views\Login\AjouterHomeAdresse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdressesSet.cs">
@@ -270,8 +270,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\AjouterWorkAdresses.cshtml" />
-    <Content Include="Views\Home\AjouterAccount.cshtml" />
+    <Content Include="Views\Login\AjouterWorkAdresses.cshtml" />
+    <Content Include="Views\Login\AjouterAccount.cshtml" />
     <EntityDeploy Include="TogetherModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TogetherModel.Designer.cs</LastGenOutput>
@@ -281,6 +281,10 @@
     </Content>
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\User.cshtml" />
+    <Content Include="Views\Login\AjouterUserInfo.cshtml" />
+    <Content Include="Views\Login\AjouterHomeAdresseInfo.cshtml" />
+    <Content Include="Views\Login\AjouterWorkAdresseInfo.cshtml" />
+    <Content Include="Views\Login\InfoTest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

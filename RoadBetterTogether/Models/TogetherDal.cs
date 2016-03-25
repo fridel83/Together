@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using RoadBetterTogether.ViewModels;
 
 namespace RoadBetterTogether.Models
 {
@@ -136,6 +137,22 @@ namespace RoadBetterTogether.Models
             }
 
             return str.ToString();
+        }
+
+        public int saveUserAccompt(CreateAccountViewModel vue)
+        { 
+            vue.user.actif = true;
+            vue.user.password = this.encodeStringMD5(vue.user.password);
+            int idUser = this.ajouterUser(vue.user);
+            TogetherUsersSet_TogetherDrivers rel = new TogetherUsersSet_TogetherDrivers { TogetherUsersSet = vue.user };
+            int idDriver = this.saveTogetherUsersSet_TogetherDrivers(rel);
+            vue.home.TogetherUsersSet = vue.user;
+            vue.work.TogetherUsersSet = vue.user;
+            AdressesSet_HomeAdress myhome = new AdressesSet_HomeAdress { AdressesSet = vue.home };
+            AdressesSet_WorkAdress mywork = new AdressesSet_WorkAdress { AdressesSet = vue.work };
+            this.saveHomeAdress(myhome);
+            this.saveWorkAdress(mywork);
+            return idDriver;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using RoadBetterTogether.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,6 @@ namespace RoadBetterTogether.Models
         TogetherUsersSet autentifier(string login, string mdp);
         string encodeStringMD5(string password);
         bool verifyMD5(string input, string password);
+        int saveUserAccompt(CreateAccountViewModel vue);
     }
 }

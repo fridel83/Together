@@ -1,0 +1,77 @@
+﻿@model RoadBetterTogether.TogetherUsersSet
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" href="../../Content/Site.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <h2>AjouterUserInfo</h2>
+
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Information de votre Compte</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.firstname)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.firstname)
+                @Html.ValidationMessageFor(model => model.firstname)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.age)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.age)
+                @Html.ValidationMessageFor(model => model.age)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.login)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.login)
+                @Html.ValidationMessageFor(model => model.login)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.password)
+                @Html.ValidationMessageFor(model => model.password)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.goingMode)
+                @Html.CheckBoxFor(model => model.goingMode, new Dictionary<string, object>{
+                     {"id", "goingMode"},
+                     {"onclick","displayVoitureForm()"},
+                    })
+            </div>
+            <div>
+                <input type="submit" value="Envoyer" />
+            </div>
+        </fieldset>
+    }
+</body>
+</html>
+
+
+
