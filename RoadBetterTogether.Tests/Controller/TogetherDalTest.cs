@@ -22,9 +22,9 @@ namespace RoadBetterTogether.Tests.Controller
         {
             using (ITogetherDal dal = new TogetherDal())
             {
-                dal.ajouterUser("test1", "son nom", 13, "sonmail@gmail.com");
+                int idUser = dal.ajouterUser("test1", "son nom", 13, "sonmail@gmail.com","fridel","fridel", false);
                 List<RoadBetterTogether.TogetherUsersSet> mesusers= dal.obtenirTousLesUsers();
-                TogetherUsersSet user = dal.obtenirUserByUserId(1);
+                TogetherUsersSet user = dal.obtenirUserByUserId(idUser);
                 Assert.AreEqual("test1", user.firstname);
                 Assert.AreEqual(1, mesusers.Count);
             }

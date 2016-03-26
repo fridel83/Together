@@ -42,9 +42,9 @@ namespace RoadBetterTogether.Models
         }
 
 
-        public int ajouterUser(String prenom = "idriss", String nom = "eliguene", int agee = 33, String mail = "idriss.eliguene@gmail.com", bool goingMode = true)
+        public int ajouterUser(String prenom = "idriss", String nom = "eliguene", int agee = 33, String mail = "idriss.eliguene@gmail.com", string login ="loginTest", string mdp="passTest", bool goingMode = true)
         {
-            TogetherUsersSet user = new TogetherUsersSet { firstname = prenom, name =nom, age = agee, email = mail, goingMode=goingMode };
+            TogetherUsersSet user = new TogetherUsersSet { firstname = prenom, name =nom, age = agee, email = mail, login= login, password=mdp, goingMode=goingMode };
             this.bdd.TogetherUsersSet.Add(user);
             return bdd.SaveChanges();
         }

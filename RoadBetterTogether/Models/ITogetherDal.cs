@@ -10,7 +10,7 @@ namespace RoadBetterTogether.Models
 {
     public interface ITogetherDal : IDisposable
     {
-        int ajouterUser(string prenom, string nom, int agee, string mail, bool goingMode = true);
+        int ajouterUser(string prenom, string nom, int agee, string mail,string login, string mdp, bool goingMode = true);
         int ajouterUser(TogetherUsersSet user);
         List<TogetherUsersSet> obtenirTousLesUsers();
         void setUserModeTransport(bool mode, int id);

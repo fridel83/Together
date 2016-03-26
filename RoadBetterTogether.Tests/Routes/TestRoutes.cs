@@ -24,7 +24,7 @@ namespace RoadBetterTogether.Tests.Routes
         public void TestRoutes()
         {
             RouteData data = getRouteData("~/Ajouter/User");
-            Assert.AreEqual("Home", data.Values["controller"]);
+            Assert.AreEqual("Login", data.Values["controller"]);
             Assert.AreEqual("AjouterUser", data.Values["action"]);
         }
     }
