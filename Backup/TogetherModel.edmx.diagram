@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9997e68f26e64bcebbd2cb7bc902dad9" Name="Diagram1">
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.AdressesSet" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.AdressesSet_HomeAdress" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.AdressesSet_WorkAdress" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.CompagnySiteSet" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.HomeAdressSet" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.PostSet" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.RoadTeamSet" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.TogetherCarsSet" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.TogetherCompagnySet" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.TogetherUsersSet" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.TogetherUsersSet_TogetherDrivers" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst.TogetherModel.WorkAdressSet" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_HomeAdress_inherits_AdressesSet" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_TogetherUsersSetAdressesSet" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_WorkAdress_inherits_AdressesSet" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_TogetherCompagnySite" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_TogetherCarsTogetherDrivers" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst.TogetherModel.FK_TogetherDrivers_inherits_TogetherUsers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
